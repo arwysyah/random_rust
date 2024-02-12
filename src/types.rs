@@ -1,4 +1,4 @@
-
+use std::io;
 pub fn print_data_types () {
     println!("DATA_TYPES  ==========");
     let guess :u32 = 42;
@@ -24,9 +24,35 @@ let x :f32 = 32.0;
 
     let five_hundred = tup.0;
     println!("here is tupple 500 index 0 {}",five_hundred);
+
+
+println!("ARRAY ===>");
+
+
+
+invalid_array_generator();
     println!("END OF DAATA TYPES =======> ")
 }
+ fn invalid_array_generator (){
+let a:[i32;5] = [1, 2, 3, 4, 5];
 
+    println!("Please enter an array index.");
+
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+println!("here is the index {index}");
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+
+    let element = a[index];
+
+    println!("The value of the element at index {index} is: {element}");
+}
 
 
 
